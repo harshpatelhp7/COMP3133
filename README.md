@@ -1,1 +1,1 @@
-![demo](./lab1.JPG?raw=true "Optional Title")
+![demo](./lab1.jpg?raw=true "Optional Title")

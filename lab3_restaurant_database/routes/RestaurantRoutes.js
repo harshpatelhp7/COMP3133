@@ -1,3 +1,4 @@
+const e = require("express");
 const express = require("express");
 const restaurantModel = require("../model/Restaurant");
 const app = express();
@@ -53,6 +54,40 @@ app.get("/restaurants/cuisine/:value", async (req, res) => {
     }
   } catch (err) {
     res.status(500).send(err);
+  }
+});
+
+app.get("/restaurants/:value", async (req, res) => {
+  const sorting = req.params.value;
+  console.log(sorting);
+  if (sorting == "ASC") {
+    let restaurants = await restaurantModel
+      .find({}, "cusisine", "restaurant_id", "name", "city", "_id")
+      .sort({ restaurant_id: 1 });
+
+    try {
+      if (restaurants.length != 0) {
+        res.status(200).send(restaurants);
+      } else {
+        res.status(404).send("No data found");
+      }
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  } else if (sorting == "DESC") {
+    let restaurants = await restaurantModel
+      .find({}, "cusisine", "restaurant_id", "name", "city", "_id")
+      .sort({ restaurant_id: -1 });
+
+    try {
+      if (restaurants.length != 0) {
+        res.status(200).send(restaurants);
+      } else {
+        res.status(404).send("No data found");
+      }
+    } catch (err) {
+      res.status(500).send(err);
+    }
   }
 });
 

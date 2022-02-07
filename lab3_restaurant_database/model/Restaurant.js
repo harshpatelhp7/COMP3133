@@ -4,17 +4,15 @@ const RestaurantSchema = new mongoose.Schema({
   address: {
     building: {
       type: Number,
-      required: [true, "Please enter building number"],
     },
-    street: { type: String, required: [true, "Please enter street"] },
-    zipcode: { type: Number, required: [true, "Please enter zip"] },
+    street: { type: String },
+    zipcode: { type: Number },
   },
   city: {
     type: String,
-    required: [true, "Please enter city"],
   },
-  cuisine: { type: String, required: [true, "Please enter cuisine"] },
-  name: { type: String, required: [true, "Please enter name"] },
+  cuisine: { type: String },
+  name: { type: String },
   restaurant_id: {
     type: String,
     unique: [true, "id is already taken."],

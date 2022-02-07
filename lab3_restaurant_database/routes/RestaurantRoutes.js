@@ -28,4 +28,32 @@ app.post("/restaurant", async (req, res) => {
   }
 });
 
+app.post("/restaurants", async (req, res) => {
+  let restaurants = [];
+  restaurants = req.body;
+  try {
+    console.log(typeof restaurants);
+    await restaurantModel.insertMany(restaurants);
+    res.send(restaurants);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.get("/restaurants/cuisine/:value", async (req, res) => {
+  console.log(req.params.value);
+  const restaurants = await restaurantModel.find({ cuisine: req.params.value });
+  console.log(restaurants);
+
+  try {
+    if (restaurants.length !== 0) {
+      res.send(restaurants);
+    } else {
+      res.send("No data found");
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 module.exports = app;

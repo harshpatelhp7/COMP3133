@@ -1,0 +1,14 @@
+.registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: fit-content;
+  text-align: center;
+  padding: 10px 40px 10px;
+  border-radius: 20px;
+  margin-bottom: 1vh;
+}

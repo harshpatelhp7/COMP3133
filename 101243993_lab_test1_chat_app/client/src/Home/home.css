@@ -1,0 +1,19 @@
+ul {
+  list-style: none;
+}
+button {
+  padding: 5px 30px 5px;
+  margin-top: 1vh;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+li {
+  margin: 2vh;
+}
+.home {
+  display: flex;
+  justify-content: center;
+}

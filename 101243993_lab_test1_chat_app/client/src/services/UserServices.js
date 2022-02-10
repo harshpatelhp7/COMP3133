@@ -9,6 +9,9 @@ class UserService {
   getUsers() {
     return axios.get(USER_BASEURL);
   }
+  getUserByUserName(username) {
+    return axios.get(USER_BASEURL + "/" + username);
+  }
 }
 
 export default new UserService();

@@ -79,6 +79,15 @@ body {
   overflow-x: hidden;
 }
 
+.chat-window {
+  width: 100vw;
+}
+
+.chat-footer {
+  width: 30vw;
+  margin-left: 40vw;
+}
+
 .chat-window .chat-body .message-container::-webkit-scrollbar {
   display: none;
 }

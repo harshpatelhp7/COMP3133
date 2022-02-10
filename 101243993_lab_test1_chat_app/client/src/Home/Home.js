@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import io from "socket.io-client";
 import "./home.css";
+import "../Rooms/room.css";
 
 import Room from "../Rooms/Room";
 
 const socket = io.connect("http://localhost:3002");
 let room = "";
-function Home() {
+let data = {
+  room: "",
+  username: "",
+};
+function Home({ username }) {
   const [showChat, setShowChat] = useState(false);
 
   const handleClick = (e) => {
     e.preventDefault();
     room = e.target.value;
-    socket.emit("join_room", room);
+    data = { room: room, username: username };
+    socket.emit("join_room", data);
     setShowChat(true);
   };
 
@@ -52,7 +58,7 @@ function Home() {
           </ul>{" "}
         </div>
       ) : (
-        <Room socket={socket} room={room} id={socket.id} />
+        <Room socket={socket} room={room} username={username} />
       )}
     </div>
   );

@@ -2,17 +2,19 @@ import React, { useState, useEffect } from "react";
 import "./room.css";
 import ScrollToBottom from "react-scroll-to-bottom";
 import Home from "../Home/Home";
+import "../Home/home.css";
 
-function Room({ socket, room, id }) {
+function Room({ socket, room, username }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const [showChat, setShowChat] = useState(true);
 
   const sendMessage = async () => {
+    console.log(username);
     if (currentMessage !== "") {
       const messageData = {
         room: room,
-        author: id,
+        author: username,
         message: currentMessage,
         time:
           new Date(Date.now()).getHours() +
@@ -48,13 +50,17 @@ function Room({ socket, room, id }) {
                 return (
                   <div
                     className="message"
-                    id={id === messageContent.author ? "other" : "you"}
+                    id={username === messageContent.author ? "other" : "you"}
                   >
                     <div>
                       <div className="message-content">
                         <p>{messageContent.message}</p>
                       </div>
                       <div className="message-meta">
+                        <p id="author">
+                          {messageContent.author}
+                          {`\n`}
+                        </p>
                         <p id="time">{messageContent.time}</p>
                       </div>
                     </div>

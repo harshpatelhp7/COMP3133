@@ -7,7 +7,7 @@ const { Server } = require("socket.io");
 const mongoose = require("mongoose");
 const userRouter = require("./routes/UserRoutes");
 const BASE_URL_MongoDB =
-  "";
+  "mongodb+srv://harshpatelhp7:DOGEtomoon2021@comp3123.h9dis.mongodb.net/COMP3133?retryWrites=true&w=majority";
 
 mongoose.connect(`${BASE_URL_MongoDB}`, {
   useNewUrlParser: true,
@@ -28,9 +28,9 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log(`User ${socket.id} connected`);
 
-  socket.on("join_room", (room) => {
-    socket.join(room);
-    console.log(`user with id: ${socket.id} joined room : ${room}`);
+  socket.on("join_room", (data) => {
+    socket.join(data.room);
+    console.log(`user: ${data.username} joined room : ${data.room}`);
   });
   socket.on("send_message", (data) => {
     console.log(data);

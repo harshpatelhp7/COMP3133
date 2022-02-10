@@ -51,7 +51,7 @@ function Login() {
       {!showChat ? (
         <>
           <div className="head">
-            <h1>Welcome Aboard!</h1>
+            <h1>Log into your existing account</h1>
           </div>
 
           <form>
@@ -76,16 +76,23 @@ function Login() {
               ></input>
             </div>
 
-            <button type="submit" onClick={loginUser}>
-              Login
-            </button>
-            <p
-              onClick={() => {
-                navigate("/");
-              }}
-            >
-              New User?
-            </p>
+            <div className="buttons">
+              <button
+                type="submit"
+                onClick={loginUser}
+                style={{ background: "green" }}
+              >
+                Login
+              </button>
+              <button
+                onClick={() => {
+                  navigate("/");
+                }}
+                style={{ background: "orange" }}
+              >
+                New User?
+              </button>
+            </div>
           </form>
         </>
       ) : (

@@ -64,8 +64,26 @@ function Registration() {
               setConfirmPassword(event.target.value);
             }}
           ></input>
-          <button onClick={handleClick}>Register</button>
-          <button onClick={() => navigate("/login")}>Existing User?</button>
+          <button
+            onClick={handleClick}
+            style={{
+              background: "green",
+              borderRadius: "3px",
+              padding: "5px 30px 5px",
+            }}
+          >
+            Register
+          </button>
+          <button
+            onClick={() => navigate("/login")}
+            style={{
+              background: "orange",
+              borderRadius: "3px",
+              padding: "5px 30px 5px",
+            }}
+          >
+            Existing User?
+          </button>
         </>
       ) : (
         <Home username={username} />

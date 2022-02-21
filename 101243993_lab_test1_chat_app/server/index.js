@@ -7,7 +7,7 @@ const { Server } = require("socket.io");
 const mongoose = require("mongoose");
 const userRouter = require("./routes/UserRoutes");
 const BASE_URL_MongoDB =
-  "";
+  "mongodb+srv://harshpatelhp7:DOGEtomoon2021@comp3123.h9dis.mongodb.net/COMP3133?retryWrites=true&w=majority";
 
 mongoose.connect(`${BASE_URL_MongoDB}`, {
   useNewUrlParser: true,

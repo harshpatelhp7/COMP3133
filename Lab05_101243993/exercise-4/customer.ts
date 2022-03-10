@@ -19,3 +19,4 @@ export class Customer {
 
 let customer = new Customer("John", "Smith", 20);
 customer.greeter();
+customer.getAge();

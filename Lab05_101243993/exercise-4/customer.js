@@ -18,3 +18,4 @@ var Customer = /** @class */ (function () {
 exports.Customer = Customer;
 var customer = new Customer("John", "Smith", 20);
 customer.greeter();
+customer.getAge();
